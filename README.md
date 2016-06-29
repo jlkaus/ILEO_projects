@@ -1,2 +1,2 @@
-# ILEO_projects
-Some ILEO project related stuff.
+Stuff related to ILEO projects.
+
