@@ -1,23 +1,29 @@
 // Treating 1 unit as 1mm
 units = 25.4;
-width=1.5*units;
+width=2*units;
 height=2*units;
 arch_thickness=0.17*units;
-hole_size = width - 4*arch_thickness;
+hole_size = 1.25*units;  //width - 4*arch_thickness;
+lip_height = 1;
+lip_width = 1;
 
 // arc angle and segment length (when generating circles and arcs, it will break the arc into segments like this)
 $fa=5;
 $fs=1;
 
 difference() {
+difference() {
   union() {
     cylinder(d=width, h=height - width/2);
     translate([0,0,height - width/2]) sphere(d=width);
+    cylinder(d=2*lip_width+width, h=lip_height);
   }
 
   translate([0,0,height - hole_size/2 - arch_thickness]) union() {
     rotate([90,0,0]) cylinder(d=hole_size, h=2*width, center=true);
     rotate([90,0,90]) cylinder(d=hole_size, h=2*width, center=true);
   }
+}
+translate([0,0,height - hole_size/2 - 0.75*arch_thickness]) sphere(d=hole_size)
 }
 
