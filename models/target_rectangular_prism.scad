@@ -14,16 +14,9 @@ $fs=1;
 difference() {
   difference() {
     union() {
-      cylinder(d=width, h=height - width/2);  // for basic cylinder, height should just be height
-      translate([0,0,height - width/2]) sphere(d=width);  // remove this for basic cylinder
-      cylinder(d=2*lip_width+width, h=lip_height);  // the lip
+       translate([0,0,height/2]) cube([width, width, height],center=true);
+       translate([0,0,lip_height/2]) cube([width+2*lip_width, width+2*lip_width, lip_height], center=true);
     }
-
-    // for rectangular prism:
-    // union() {
-    //   cube([width, width, height]);
-    //   cube([width+2*lip_width, width+2*lip_width, lip_height]);
-    // }
 
     translate([0,0,height - hole_size/2 - arch_thickness]) union() {
       rotate([90,0,0]) cylinder(d=hole_size, h=2*width, center=true);

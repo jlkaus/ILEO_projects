@@ -14,8 +14,7 @@ $fs=1;
 difference() {
   difference() {
     union() {
-      cylinder(d=width, h=height - width/2);  // for basic cylinder, height should just be height
-      translate([0,0,height - width/2]) sphere(d=width);  // remove this for basic cylinder
+      cylinder(d=width, h=height);  // for basic cylinder, height should just be height
       cylinder(d=2*lip_width+width, h=lip_height);  // the lip
     }
 
