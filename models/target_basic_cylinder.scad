@@ -4,8 +4,6 @@ width=2*units;
 height=2*units;
 arch_thickness=0.17*units;
 hole_size = 1.25*units;  //width - 4*arch_thickness;
-lip_height = 1;
-lip_width = 1;
 
 // arc angle and segment length (when generating circles and arcs, it will break the arc into segments like this)
 $fa=5;
@@ -15,7 +13,7 @@ difference() {
   difference() {
     union() {
       cylinder(d=width, h=height);  // for basic cylinder, height should just be height
-      cylinder(d=2*lip_width+width, h=lip_height);  // the lip
+      
     }
 
     // for rectangular prism:
